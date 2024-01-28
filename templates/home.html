@@ -1,0 +1,320 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active  h-100 c-item">
+      <img src="{% static 'images/b1.png' %}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-lg-block d-block h-100 text-lg-center text-sm-center d-lg-flex d-sm-flex flex-lg-column flex-sm-column justify-content-center justify-content-sm-center align-items-center align-items-sm-center">
+        <h1 class="banner-txt opacity-75">IT IS NOT JUST A FOOD, IT IS AN EXPERIENCE</h1>
+        
+      </div>
+    </div>
+    <div class="carousel-item  h-100 c-item">
+      <img src="{% static 'images/b2.png' %}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-block d-lg-block h-100 text-lg-center text-sm-center d-lg-flex d-sm-flex flex-lg-column flex-sm-column justify-content-center justify-content-sm-center align-items-center align-items-sm-center">
+        <h1 class="banner-txt opacity-75">ORDER TASTY AND FRESH FOOD</h1>
+        
+      </div>
+    </div>
+    <div class="carousel-item  h-100 c-item">
+      <img src="{% static 'images/b3.png' %}" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-block d-lg-block h-100 text-lg-center text-sm-center d-lg-flex d-sm-flex flex-lg-column flex-sm-column justify-content-center justify-content-sm-center align-items-center align-items-sm-center">
+        <h1 class="banner-txt opacity-75">PURE NATURAL FOOD FOR YOUR HEALTHY LIFE</h1>
+      
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+<h3 class="my-5 text-center">Best Food Waiting for Your Belly</h3>
+
+
+<form method="get" action="{% url 'search' %}" class="input-group container mb-3 w-50">
+  <input type="text" class="form-control" placeholder="Search here" aria-label="Recipient's username" aria-describedby="button-addon2" name="query" id="search">
+  <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
+</form>
+
+
+
+<div class="container text-center my-5">
+
+  <div class="grid gap-3">
+    <div class="col-1 btn btn-outline-warning "><a class="text-decoration-none text-dark" href="{% url 'home' %}">All</a></div>
+      {% for b in category %}
+          <div class="col-1 btn btn-outline-warning "><a class="text-decoration-none text-dark" href="{% url 'category_wise_food' b.slug %}">{{b.name}}</a></div>
+      {% endfor %}
+  </div>
+</div>
+
+
+<div class="row my-5 container m-auto">
+  {% if data %}
+  {% for food in data %}
+  <div class="col-lg-4 my-3 box ">
+    <a href="{% url 'food_details' food.foodid %}" class="text-decoration-none text-center">
+    <div class=" card h-100 ">
+      <div class="card-body">
+        <img src="{{food.image.url}}" class="card-img-top" alt="...">
+        <h5 class="card-title fw-light text">{{food.name}}</h5>
+        <p class="card-text fw-bold">${{food.price}}</p>
+        <p class="card-text">{{car.description | truncatewords:10}}</p>
+        <p class="card-text fw-bold"><span class="fw-light">{{food.category.name}}</span></p>
+      </div>
+    </div>
+  </a>
+  </div>
+  {% endfor %}
+  {% else %}
+  <div style="height: 400px;"> 
+    <h3 class="text-center text-danger">No item found</h3>
+  </div>
+  {% endif %}
+</div>
+
+
+
+
+
+<div class="my-5 food-image d-flex flex-column justify-content-center align-items-center">
+  <h1>ENJOY YOUR HEALTHY DELICIOUS FOOD</h1>
+</div>
+
+
+
+
+
+
+<section class="container">
+  <div class="width-title mb-3 center-title text-center">
+    <h3>Our Customer's Feedback</h3>
+  </div>
+
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+    <div class="carousel-inner ">
+      <div class="carousel-item active bg-white">
+        <div class="row g-lg-4 g-md-4 g-4">
+          <div class="col-lg-6 col-md-12 col-12">
+            <div class="card p-3">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <img class="img-fluid" src="{% static 'images/comma.png' %}" alt="">
+                  <div>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-regular fa-star text-warning"></i>
+                  </div>
+                </div>
+                <p class="card-text text-dark my-4">I was so impressed with my breakfast this morning! I tried the Fried Green Tomato Benedict and my boyfriend got the Crab Cakes Benedict. We both finished our whole plates and were so impressed with the quality </p>
+                <div class="d-flex align-items-center">
+                  <img class="img-fluid" src="{% static 'images/customar2.png' %}" alt="">
+                  <div class="ms-3">
+                    <h6 class="text-dark mb-0">Shanta Akter</h6>
+              
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 col-12">
+            <div class="card p-3">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <img class="img-fluid" src="{% static 'images/comma.png' %}" alt="">
+                  <div>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-regular fa-star text-warning"></i>
+                  </div>
+                </div>
+                <p class="card-text text-dark my-4">Breakfast was delicious. Like a good homestyle country savory breakfast (and Im from the south, thats saying a lot)… Enjoyed the whole experience and definitely recommend this place for a place to eat on the cape</p>
+                <div class="d-flex align-items-center">
+                  <img class="img-fluid" src="{% static 'images/customar1.png' %}" alt="">
+                  <div class="ms-3">
+                    <h6 class="text-dark mb-0">Awlad Hossain</h6>
+                
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item bg-white">
+        <div class="row g-lg-4 g-md-4 g-4">
+          <div class="col-lg-6 col-md-12 col-12">
+            <div class="card p-3">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <img class="img-fluid" src="{% static 'images/comma.png' %}" alt="">
+                  <div>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-regular fa-star text-warning"></i>
+                  </div>
+                </div>
+                <p class="card-text text-dark my-4">I was so impressed with my breakfast this morning! I tried the Fried Green Tomato Benedict and my boyfriend got the Crab Cakes Benedict. We both finished our whole plates and were so impressed with the quality !</p>
+                <div class="d-flex align-items-center">
+                  <img class="img-fluid customar-image" src="{% static 'images/customar3.png' %}" alt="">
+                  <div class="ms-3">
+                    <h6 class="text-dark mb-0">Shanta Akter</h6>
+              
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 col-12">
+            <div class="card p-3">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <img class="img-fluid" src="{% static 'images/comma.png' %}" alt="">
+                  <div>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-regular fa-star text-warning"></i>
+                  </div>
+                </div>
+                <p class="card-text text-dark my-4">I was so impressed with my breakfast this morning! I tried the Fried Green Tomato Benedict and my boyfriend got the Crab Cakes Benedict. We both finished our whole plates and were so impressed with the quality</p>
+                <div class="d-flex align-items-center">
+                  <img class="img-fluid customar-image" src="{% static 'images/customar4.png' %}" alt="">
+                  <div class="ms-3">
+                    <h6 class="text-dark mb-0">Awlad Hossain</h6>
+                
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item bg-white">
+        <div class="row g-lg-4 g-md-4 g-4">
+          <div class="col-lg-6 col-md-12 col-12">
+            <div class="card p-3">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <img class="img-fluid" src="{% static 'images/comma.png' %}" alt="">
+                  <div>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-regular fa-star text-warning"></i>
+                  </div>
+                </div>
+                <p class="card-text text-dark my-4">Breakfast was delicious. Like a good homestyle country savory breakfast (and Im from the south, thats saying a lot)… Enjoyed the whole experience and definitely recommend this place for a place to eat on the cape</p>
+                <div class="d-flex align-items-center">
+                  <img class="img-fluid customar-image" src="{% static 'images/customar5.png' %}" alt="">
+                  <div class="ms-3">
+                    <h6 class="text-dark mb-0">Awlad Hossain</h6>
+                  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 col-12">
+            <div class="card p-3">
+              <div class="card-body">
+                <div class="d-flex justify-content-between">
+                  <img class="img-fluid" src="{% static 'images/comma.png' %}" alt="">
+                  <div>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-solid fa-star text-warning"></i>
+                    <i class="fa-regular fa-star text-warning"></i>
+                  </div>
+                </div>
+                <p class="card-text text-dark my-4">Breakfast was delicious. Like a good homestyle country savory breakfast (and Im from the south, thats saying a lot)… Enjoyed the whole experience and definitely recommend this place for a place to eat on the cape</p>
+                <div class="d-flex align-items-center">
+                  <img class="img-fluid" src="{% static 'images/customar1.png' %}" alt="">
+                  <div class="ms-3">
+                    <h6 class="text-dark mb-0">Shanta Akter</h6>
+                  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="prev bg-primary rounded-circle d-lg-block d-md-none d-none" type="button"
+      data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon p-0" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="next bg-primary rounded-circle d-lg-block d-md-none d-none" type="button"
+      data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  
+</section>
+
+
+
+
+
+
+<div class="container text-center my-5">
+  <div class="row">
+    <div class="col-lg-3 col-sm-12 border-end my-sm-3">
+      <i class="fa-solid fa-truck fs-3"></i>
+      <h5>Free Shipping</h5>
+      <p class="icon-text">A free trackable two days delivery service on all orders over $90</p>
+    </div>
+    <div class="col-lg-3 col-sm-12 border-end my-sm-3">
+      <i class="fa-solid fa-money-bill-transfer fs-3"></i>
+      <h5>Money Back Guarantee</h5>
+      <p class="icon-text">We offer customers 100% money back guarantee on everything we sell.</p>
+    </div>
+    <div class="col-lg-3 col-sm-12 border-end my-sm-3">
+      <i class="fa-regular fa-credit-card fs-3"></i>
+      <h5>Flexible Payment</h5>
+      <p class="icon-text">All orders placed before Sunday to Friday are dispatched same day.</p>
+    </div>
+    <div class="col-lg-3 col-sm-12 my-sm-3">
+      <i class="fa-solid fa-rotate fs-3"></i>
+      <h5>Exchanges & Returns</h5>
+      <p class="icon-text">You have 30 days from the shipping date to return your purchase.</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

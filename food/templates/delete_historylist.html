@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    
+
+<div class="">
+    <div class="container">
+        <h1>Are you sure want to delete from your ordered list?</h1>
+        <div class="d-flex flex-row">
+            <form method="post">
+                {% csrf_token %}
+                <button class="btn btn-warning me-5 fs-4" type="submit">Yes</button>
+            </form>
+            <button class="btn btn-info"><a class="text-decoration-none text-dark fs-4" href="{% url 'food_historylist' %}">No</a></button>
+        </div>
+    
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}

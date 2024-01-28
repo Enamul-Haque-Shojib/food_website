@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+
+{% block content %}
+    
+   
+<div class="container my-5 pb-5">
+    <h1 class="text-center fw-light text-danger my-5">About Us</h1>
+    <div class="mb-3" style="max-width: 100%;">
+      <div class="row g-0">
+        <div class="col-lg-6 col-sm-12 d-sm-flex flex-sm-column justify-content-sm-center align-items-sm-center">
+          <img src="{% static 'images/aboutus.jpg' %}" class="img-fluid rounded-2" alt="...">
+        </div>
+        <div class="col-lg-6 col-sm-12 ps-lg-2 p-sm-0">
+          <div class="card-body">
+            <small>EXPLORE OUR COLLECTIONS</small>
+            <h1 class="card-title fw-light fashion-title mb-2">The Spectacle Before Us was indeed Sublime</h1>
+            <p class="card-text">A forerunner of the modern restaurant is the thermopolium, an establishment in Ancient Greece and Ancient Rome that sold and served ready-to-eat food and beverages. These establishments were somewhat similar in function to modern fast food restaurants. They were most often frequented by people who lacked private kitchens. In the Roman Empire they were popular among residents of insulae.[</p>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    
+    
+{% endblock %}

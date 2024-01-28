@@ -1,0 +1,49 @@
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    
+   
+
+    
+<div class="row container m-auto cartlist-contain">
+    <div class="col-md-6 mt-lg-5 order-2">
+        <div style="width: 75%; margin: auto;" class="mt-5">
+            <h1>{{type}}</h1>
+            <form method="post">
+              {% csrf_token %}
+              <!-- {{form | crispy}} -->
+              {% for fm in form %}
+              {{fm.label_tag}}
+              {{fm}}
+              {{fm.errors | striptags}}
+              {% endfor %}
+                <button class="btn btn-warning mb-5">Submit</button>
+            </form>
+            {% if type == 'Login' %}
+            <a href="{% url 'register' %}"> go to register</a>
+            <p><a href="{% url 'password_reset' %}">Forgot Password?</a></p>
+            {% else %}
+            <a href="{% url 'login' %}"> go to login</a>
+            
+            {% endif %}
+        </div>
+    </div>
+    <div class="col-md-6 order-1">
+      {% if type == 'Login' %}
+      <img class="w-100" src="{% static 'images/login.jpg' %}" alt="" />
+      {% else %}
+      <img class="w-100" src="{% static 'images/reg.jpg' %}" alt="" />
+      {% endif %}
+    </div>
+  </div>
+      
+    
+    
+{% endblock %}
+      
+    

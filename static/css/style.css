@@ -1,0 +1,316 @@
+
+:root{
+    --card_width: 200px;
+    --card_border_radius: 16px;
+    --row_increment: 5px;
+    --card_small: 25;
+    --card_medium: 35;
+    --card_large: 45;
+}
+
+.pin_container{
+    width: 100%;
+    height: 70vh;
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fill, var(--card_width));
+    grid-auto-rows: var(--row_increment);
+    justify-content: center;
+    
+
+}
+
+.card{
+    padding: 0px;
+    margin: 5px;
+    border-radius: var(--card_border_radius);
+    cursor: pointer;
+    
+    
+}
+
+.card_small{
+    grid-row-end: span var(--card_small);
+    
+    position: relative; 
+    /* height: 100vh;
+    width: 100%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background-size: cover;
+    
+     
+}
+
+.card_small::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    
+    background-color: rgba(0,0,0,0.25);
+}
+
+.card_medium{
+    grid-row-end: span var(--card_medium);
+
+    position: relative; 
+    /* height: 100vh;
+    width: 100%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background-size: cover;
+
+   
+}
+
+.card_medium::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    
+    background-color: rgba(0,0,0,0.25);
+}
+
+.card_large{
+    grid-row-end: span var(--card_large);
+    
+    position: relative; 
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background-size: cover;
+    
+}
+
+.card_large::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    
+    background-color: rgba(0,0,0,0.25);
+}
+
+
+.cat-text{
+position: relative;
+  color: #ffffff;  
+  text-align: center;
+}
+
+
+
+/* 
+.box {
+    transition: box-shadow .3s;
+    width: 400px;
+    height: 400px;
+    margin: 50px;
+    padding: 20px;
+    border-radius:10px;
+
+    background: #fff;
+
+    
+  }
+  .box:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+  } */
+
+ 
+
+
+
+
+
+.nav-profile-image{
+    width: 40px;
+    height: 40px;
+}
+
+.nav-profile-image img{
+    width: 100%;
+    height: 100%;
+}
+
+
+.c-item {
+    background-color: black;
+    color: white;
+}
+
+.c-item img {
+    opacity: 0.6;
+
+}
+
+.banner-txt{
+    font-size: 80px;;
+}
+
+
+
+
+.food-image{
+    background-image: url("../images/food.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 500px;
+    color:white;
+    
+}
+
+
+
+
+
+
+
+
+
+
+.cdlist-image{
+    width: 80px;
+    height: 90px;
+}
+.cdlist-image img{
+    width: 100%;
+    height: 100%;
+}
+
+.wish-image{
+    width: 100px;
+    height: 300px;
+}
+.wish-image img{
+    width: 100%;
+    height: 100%;
+}
+
+
+.fashion-title{
+    font-size: 50px;
+}
+
+.cartlist-contain{
+    
+    width: 100vw;
+    height: 100vh;
+}
+
+.customar-image{
+    
+    width: 45px;
+    height: 45px;
+}
+
+
+
+
+
+.prev {
+    left: -25px;
+}
+.next {
+    right: -25px;
+}
+.prev, .next{
+    position: absolute;
+    top: 120px;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    width: 50px;
+    height: 50px;
+    padding: 9px;
+    color: #fff;
+    text-align: center;
+    background: 0 0;
+    border: 0;
+    opacity: .5;
+    transition: opacity .15s ease;
+}
+
+
+.footer-copy{
+    font-size: 12px;
+}
+
+.background-color{
+    background-color: #FFD5C0;
+}
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 576px) and (max-width: 992px) {
+
+    .banner-txt{
+        font-size: 50px;;
+    }
+
+
+    .pin_container{
+        width: 100%;
+        height: 190vh;
+        
+      
+    
+    }
+    
+    
+}
+@media only screen and (min-width: 375px) and (max-width: 576px) {
+
+    .banner-txt{
+        font-size: 25px;;
+    }
+
+    .pin_container{
+        width: 100%;
+        height: 190vh;
+        
+      
+    
+    }
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

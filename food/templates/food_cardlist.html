@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="container mb-5 pb-5">
+  <div class="row my-5">
+    <h1 class="">Food cardlist</h1>
+    
+</div>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Image</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody id="cloth-cartlist">
+    {% for food in food_cardlist %}
+    <tr>
+      <td><img src="{{food.image.url}}" class="cdlist-image" alt="..."></td>
+        <td><a href="{% url 'food_details' food.foodid %}">{{food.name}}</a></td>
+        <td>${{food.price}}</td>
+        <td><a class="btn btn-outline-success fw-bold" href="{% url 'add_cardlist_plus' food.foodid %}">+</a> {{food.quantity}} <a class="btn btn-outline-danger fw-bold" href="{% url 'add_cardlist_minus' food.foodid %}">-</a></td>
+        <td><a class="btn btn-danger" href="{% url 'delete_cardlist' food.id %}" ><i class="fa-solid fa-trash"></i></a></td>
+    </tr>
+    {% endfor %}
+   
+  </tbody>
+</table>
+{% if total_price %}
+<h3>Total Price: ${{total_price}}</h3>
+{% else %}
+<h3>Total Price: $0</h3>
+{% endif %}
+
+<a class="btn btn-success"  href="{% url 'ordernow_cardlist' %}">Order Now</a>
+
+
+</div>
+
+
+
+
+
+{% endblock %}
+

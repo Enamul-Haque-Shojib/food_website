@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    
+<div class="container">
+    <h1>Are you sure want to delete from your wish list?</h1>
+    <div class="d-flex flex-row">
+        <form method="post">
+            {% csrf_token %}
+            <button class="btn btn-warning me-5 fs-4" type="submit">Yes</button>
+        </form>
+        <button class="btn btn-info fs-4"><a class="text-decoration-none text-dark" href="{% url 'food_wishlist' %}">No</a></button>
+    </div>
+
+</div>
+
+
+{% endblock %}
