@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.urls import reverse_lazy
 
 # Create your views here.
@@ -60,6 +60,9 @@ class FoodDetailsView(DetailView):
     model = models.Food
     template_name = 'food_details.html'
     pk_url_kwarg = 'foodid'
+
+    
+
     
 
     def post(self, request, *args, **kwargs):
@@ -89,6 +92,12 @@ class FoodDetailsView(DetailView):
         reviews = food.reviews.all()
 
         review_form = forms.ReviewForm()
+
+
+
+        foodData = models.Food.objects.filter(category = self.object.category ).exclude(foodid = self.object.foodid)
+        context["foodData"] = foodData
+
         
         context['reviews'] = reviews
         context['review_form'] = review_form
@@ -96,6 +105,17 @@ class FoodDetailsView(DetailView):
     
 
     
+
+class FoodRecommendView(TemplateView):
+    model = models.Food
+    template_name = 'food_details.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        context['food_data'] = models.FoodWishList.objects.filter(author = self.request.user)
+
+        return context
+
 
 
 
