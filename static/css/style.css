@@ -168,7 +168,29 @@ position: relative;
 }
 
 
+.cat-box{
+    
+    position: relative; 
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-size: cover;
+    
+}
 
+.cat-box::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    
+    background-color: rgba(0,0,0,0.25);
+}
 
 .food-image{
     background-image: url("../images/food.jpg");

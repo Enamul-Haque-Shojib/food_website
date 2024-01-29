@@ -15,10 +15,10 @@
       </div>
       <div class="col-lg-6 my-auto">
         <div class="card-body ">
-          <h1 class="card-title">{{food.name}}</h1>
-          <h4 class="card-text">Price: ${{food.price}}</h4>
-          <p class="card-text">Description: {{food.description}}</p>
-          <p class="card-text">Category: {{food.category}}</p>
+          <h1 class="card-title fw-light text-success">{{food.name}}</h1>
+          <h3 class="card-text fw-light text-success">Price: ${{food.price}}</h3>
+          <p class="card-text">{{food.description}}</p>
+          <p class="card-text">{{food.category}}</p>
           <p class="card-text">Rating: {{food.rating}}</p>
           <p>
             {% for i in food_ratings %}
