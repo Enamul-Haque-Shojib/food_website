@@ -101,6 +101,7 @@ class FoodDetailsView(DetailView):
         
         context['reviews'] = reviews
         context['review_form'] = review_form
+        context['food_ratings'] = range(int(self.object.rating))
         return context
     
 
