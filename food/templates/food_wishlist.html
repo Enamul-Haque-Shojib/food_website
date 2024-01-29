@@ -9,7 +9,7 @@
     <h1 class="text-danger fw-light">Food wishlist</h1>
     <a href="{% url 'delete_wishlist_all' %}" class="btn btn-danger" >Delete All</a>
   </div>
-    
+    {% if food_wishlist %}
     <div class="row my-3">
         {% for food in food_wishlist %}
         <div class="col-sm-3 my-3">
@@ -30,6 +30,9 @@
         </div>
         {% endfor %}
       </div>
+      {% else %}
+      <h3 class="text-center my-5 py-5 fw-light">Wish list empty</h3>
+      {% endif %}
 </div>
 
       

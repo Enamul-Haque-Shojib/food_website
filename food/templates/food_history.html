@@ -11,7 +11,8 @@
     <a class="btn btn-danger"  href="{% url 'delete_historylist_all' %}">Delete All</a>
   </div>
 
-
+ 
+{% if food_historylist %}
 <table class="table my-3">
   <thead>
     <tr>
@@ -37,6 +38,9 @@
    
   </tbody>
 </table>
+{% else %}
+<h3 class="text-center my-5 py-5 fw-light">Ordered list empty</h3>
+{% endif %}
 
 
 
