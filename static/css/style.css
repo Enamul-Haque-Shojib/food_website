@@ -115,7 +115,9 @@ position: relative;
 
 
 
-
+.text{
+    border: 2px solid red;
+}
 
 /* 
 .box {

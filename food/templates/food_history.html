@@ -6,13 +6,13 @@
 
 
 <div class="container mb-5 pb-5">
-  <div class="row my-5">
-    <h1 class="">Ordered History</h1>
-    
-</div>
-<a class="btn btn-success"  href="{% url 'delete_historylist_all' %}">Delete All</a>
+  <div class="d-flex flex-row justify-content-between align-items-center">
+    <h1 class="text-center fw-light text-danger">Ordered History</h1>
+    <a class="btn btn-danger"  href="{% url 'delete_historylist_all' %}">Delete All</a>
+  </div>
 
-<table class="table">
+
+<table class="table my-3">
   <thead>
     <tr>
       <th scope="col">Image</th>
@@ -25,7 +25,7 @@
   </thead>
   <tbody id="cloth-cartlist">
     {% for food in food_historylist %}
-    <tr>
+    <tr class="shadow">
       <td><img src="{{food.image.url}}" class="cdlist-image" alt="..."></td>
         <td><a href="{% url 'food_details' food.foodid %}">{{food.name}}</a></td>
         <td>${{food.price}}</td>
