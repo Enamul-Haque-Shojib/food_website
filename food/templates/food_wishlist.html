@@ -15,13 +15,16 @@
         <div class="col-sm-3 my-3">
           <div class="shadow p-3 h-100">
             <div class="card-body">
+              <div class="d-flex flex-row justify-content-end">
+                <a class="text-danger fs-4" href="{% url 'delete_wishlist' food.id %}" ><i class="fa-solid fa-trash"></i></a>
+              </div>
               <img src="{{food.image.url}}" class="card-img-top" alt="...">
               <h5 class="card-title">{{food.name}}</h5>
               <p class="card-text">Price: ${{food.price}}</p>
               <p class="card-text">{{car.description | truncatewords:10}}</p>
               <p class="card-text">Category: <span class="fw-light">{{food.category.name}}</span></p>
-              <a href="{% url 'food_details' food.foodid %}" class="text-decoration-none text-dark btn btn-warning">View Details</a>
-              <a class="btn btn-danger" href="{% url 'delete_wishlist' food.id %}" ><i class="fa-solid fa-trash"></i></a>
+              <a href="{% url 'food_details' food.foodid %}" class="text-decoration-none text-dark btn btn-warning d-flex flex-row justify-content-center align-items-center">View Details</a>
+              
             </div>
           </div>
         </div>
