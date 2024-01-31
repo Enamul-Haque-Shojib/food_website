@@ -20,8 +20,7 @@
               </div>
               <img src="{{food.image.url}}" class="card-img-top" alt="...">
               <h5 class="card-title">{{food.name}}</h5>
-              <p class="card-text">Price: ${{food.price}}</p>
-              <p class="card-text">{{car.description | truncatewords:10}}</p>
+              <p class="card-text m-0">Price: ${{food.price}}</p>
               <p class="card-text">Category: <span class="fw-light">{{food.category.name}}</span></p>
               <a href="{% url 'food_details' food.foodid %}" class="text-decoration-none text-dark btn btn-warning d-flex flex-row justify-content-center align-items-center">View Details</a>
               
