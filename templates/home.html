@@ -9,21 +9,21 @@
   <div class="carousel-inner">
     <div class="carousel-item active  h-100 c-item">
       <img src="{% static 'images/b1.png' %}" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-lg-block d-block h-100 text-lg-center text-sm-center d-lg-flex d-sm-flex flex-lg-column flex-sm-column justify-content-center justify-content-sm-center align-items-center align-items-sm-center">
+      <div class="carousel-caption d-lg-block d-block h-100 text-lg-center text-md-center text-sm-center text-center d-lg-flex d-sm-flex d-flex flex-lg-column flex-sm-column flex-column justify-content-lg-center justify-content-sm-center justify-content-center align-items-lg-center align-items-sm-center align-content-center">
         <h1 class="banner-txt opacity-75">IT IS NOT JUST A FOOD, IT IS AN EXPERIENCE</h1>
         
       </div>
     </div>
     <div class="carousel-item  h-100 c-item">
       <img src="{% static 'images/b2.png' %}" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-block d-lg-block h-100 text-lg-center text-sm-center d-lg-flex d-sm-flex flex-lg-column flex-sm-column justify-content-center justify-content-sm-center align-items-center align-items-sm-center">
+      <div class="carousel-caption d-block d-lg-block h-100 text-lg-center text-md-center text-sm-center text-center d-lg-flex d-sm-flex d-flex flex-lg-column flex-sm-column flex-column justify-content-lg-center justify-content-sm-center justify-content-center align-items-lg-center align-items-sm-center align-content-center">
         <h1 class="banner-txt opacity-75">ORDER TASTY AND FRESH FOOD</h1>
         
       </div>
     </div>
     <div class="carousel-item  h-100 c-item">
       <img src="{% static 'images/b3.png' %}" class="d-block w-100" alt="...">
-      <div class="carousel-caption d-block d-lg-block h-100 text-lg-center text-sm-center d-lg-flex d-sm-flex flex-lg-column flex-sm-column justify-content-center justify-content-sm-center align-items-center align-items-sm-center">
+      <div class="carousel-caption d-block d-lg-block h-100 text-lg-center text-md-center text-sm-center text-center d-lg-flex d-sm-flex d-flex flex-lg-column flex-sm-column flex-column justify-content-lg-center justify-content-sm-center justify-content-center align-items-lg-center align-items-sm-center align-content-center">
         <h1 class="banner-txt opacity-75">PURE NATURAL FOOD FOR YOUR HEALTHY LIFE</h1>
       
       </div>
@@ -43,7 +43,7 @@
 <h1 class="my-5 text-center fw-light text-success">Best Food Waiting for Your Belly</h1>
 
 
-<form method="get" action="{% url 'search' %}" class="input-group container mb-3 w-50">
+<form method="get" action="{% url 'search' %}" class="input-group container mb-3 w-50 ">
   <input type="text" class="form-control" placeholder="Search here" aria-label="Recipient's username" aria-describedby="button-addon2" name="query" id="search">
   <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
 </form>
@@ -53,9 +53,9 @@
 <div class="container text-center my-5">
 
   <div class="grid gap-3">
-    <div class="col-1 btn btn-outline-warning "><a class="text-decoration-none text-dark" href="{% url 'home' %}">All</a></div>
+    <div class="col-lg-1 col-md-4 col-sm-4 col-12 btn btn-outline-warning "><a class="text-decoration-none text-dark" href="{% url 'home' %}">All</a></div>
       {% for b in category %}
-          <div class="col-1 btn btn-outline-warning "><a class="text-decoration-none text-dark" href="{% url 'category_wise_food' b.slug %}">{{b.name}}</a></div>
+          <div class="col-lg-1 col-md-4 col-sm-4 col-12 btn btn-outline-warning "><a class="text-decoration-none text-dark" href="{% url 'category_wise_food' b.slug %}">{{b.name}}</a></div>
       {% endfor %}
   </div>
 </div>
@@ -64,7 +64,7 @@
 <div class="row my-5 container m-auto">
   {% if data %}
   {% for food in data %}
-  <div class="col-lg-4 my-3 box ">
+  <div class="col-lg-4 col-md-6 col-sm-6 col-12 my-3 box ">
     <a href="{% url 'food_details' food.foodid %}" class="text-decoration-none text-center text-dark">
     <div class=" h-100 shadow p-2">
       <div class="card-body">
@@ -90,7 +90,7 @@
 
 
 <div class="my-5 food-image d-flex flex-column justify-content-center align-items-center">
-  <h1>ENJOY YOUR HEALTHY DELICIOUS FOOD</h1>
+  <h1 class="text-center">ENJOY YOUR HEALTHY DELICIOUS FOOD</h1>
 </div>
 
 
@@ -98,7 +98,7 @@
   <h1 class="fw-light text-success text-center mb-4">Our Master Chef</h1>
 <div class="text-center">
   <div class="row">
-    <div class="col-lg-3">
+    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
       <div class="">
         <img src="{% static 'images/chef-1.jpg' %}" class="card-img-top" alt="...">
         <div class="card-body">
@@ -111,7 +111,7 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-3">
+    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
       <div class="">
         <img src="{% static 'images/chef-2.jpg' %}" class="card-img-top" alt="...">
         <div class="card-body">
@@ -124,7 +124,7 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-3">
+    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
       <div class="">
         <img src="{% static 'images/chef-3.jpg' %}" class="card-img-top" alt="...">
         <div class="card-body">
@@ -137,7 +137,7 @@
         </div>
       </div>
     </div>
-    <div class="col-lg-3">
+    <div class="col-lg-3 col-md-6 col-sm-6 col-12">
       <div class="">
         <img src="{% static 'images/chef-4.jpg' %}" class="card-img-top" alt="...">
         <div class="card-body">
