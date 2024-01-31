@@ -22,7 +22,7 @@
               {{fm}}
               {{fm.errors | striptags}}
               {% endfor %}
-                <button class="btn btn-warning mb-5">Submit</button>
+                <button class="btn btn-warning mb-5 mt-3">Submit</button>
             </form>
             {% if type == 'Login' %}
             <a href="{% url 'register' %}"> go to register</a>
@@ -33,7 +33,7 @@
             {% endif %}
         </div>
     </div>
-    <div class="col-md-6 order-1">
+    <div class="col-md-6 mt-lg-5 order-1">
       {% if type == 'Login' %}
       <img class="w-100" src="{% static 'images/login.jpg' %}" alt="" />
       {% else %}
