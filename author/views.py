@@ -28,7 +28,7 @@ class UserRegistrationView(FormView):
         # print("token: ",token)
         uid = urlsafe_base64_encode(force_bytes(user.pk))
         # print('uid: ', uid)
-        confirm_link = f"http://127.0.0.1:8000/author/active/{uid}/{token}"
+        confirm_link = f"https://food-website-nofp.onrender.com/author/active/{uid}/{token}"
         email_subject = 'Confirm Your Email'
         email_body = render_to_string("confirm_email.html", {'confirm_link':confirm_link})
         email = EmailMultiAlternatives(email_subject, '', to=[user.email])
