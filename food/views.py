@@ -171,6 +171,7 @@ def foodWishList(request, foodid):
             return redirect('food_details',foodid=food.foodid)
         else:
             food_wishlist = models.FoodWishList()
+            
             food_wishlist.foodid = food.foodid
             food_wishlist.name = food.name
             food_wishlist.price = food.price
@@ -210,6 +211,7 @@ def foodCardList(request, foodid):
             
         else:
             x = models.FoodCardList()
+
             x.foodid = food.foodid
             x.name = food.name
             x.price = food.price
@@ -307,6 +309,7 @@ class HistoryListDeleteView(DeleteView):
 def orderNow(request):
     
     food_cardlist = models.FoodCardList.objects.filter(author = request.user)
+
     for obj in food_cardlist:
         food_historylist = models.HistoryList()
         food_historylist.foodid = obj.foodid
@@ -322,7 +325,8 @@ def orderNow(request):
     food_cardlist.delete()
     
     context= {}    
-    return render(request, 'food_cardlist.html', context)
+    # return render(request, 'food_cardlist.html', context)
+    return render(request, 'food_payment.html', context)
 
 
 
@@ -342,6 +346,9 @@ def deleteHistorylistAll(request):
     models.HistoryList.objects.filter(author = request.user).delete()
     context= {}    
     return render(request, 'food_history.html', context)
+
+
+
 
 
 

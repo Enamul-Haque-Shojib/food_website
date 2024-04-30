@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 
+import os
 from pathlib import Path
 import dj_database_url
 import environ
@@ -145,6 +146,9 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = 'media/'
 
+STRIPE_PUBLIC_KEY = 'pk_test_51L0l9nIgatlFHIeE1ZSVxcAOy4QOC74SLPss74OfiaAhZvudbCiDY7LG1Nj8CUt77uWubNtA1nCeqlsccwoJfiJk003oAcQJEB'
+STRIPE_SECRET_KEY ='sk_test_51L0l9nIgatlFHIeEhZfFuxaCh5gvZgr9bFp1S77mPmq4zIEelFSU5hBzNvPJsSSj1W9mRjxx5EUmPOCyPSzEescd00TUFNvtCY'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -158,4 +162,7 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = env("EMAIL")
 EMAIL_HOST_PASSWORD = env("EMAIL_PASSWORD")
+
+
+
 

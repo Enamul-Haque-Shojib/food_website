@@ -5,7 +5,6 @@ from . import views
 
 
 urlpatterns = [
-
     path('fooddetails/<int:foodid>', views.FoodDetailsView.as_view(), name='food_details' ),
     path('foodwishlist/', views.FoodWishListView.as_view(), name='food_wishlist' ),
     path('foodcardlist/', views.FoodCardListView.as_view(), name='food_cardlist' ),
@@ -20,6 +19,7 @@ urlpatterns = [
     path('deletewishlistall/', views.deleteWishlistAll, name='delete_wishlist_all' ),
     path('deletehistorylistall/', views.deleteHistorylistAll, name='delete_historylist_all' ),
     path('ordercartlist/', views.orderNow, name='ordernow_cardlist' ),
+    path('checkout/', views.checkout, name='checkout' ),
     
   
 ]
